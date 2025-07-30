@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ferramenta de Links de Estudo</title>
+</head>
+<body>
+    <header>
+        <h1>Ferramenta de Links de Estudo</h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Adicionar Link de Estudo</h2>
+            <form id="study-form">
+                <label for="site-name">Nome do Site:</label>
+                <input type="text" id="site-name" required>
+                
+                <label for="site-url">URL do Site:</label>
+                <input type="url" id="site-url" required>
+                
+                <button type="submit">Adicionar Link</button>
+            </form>
+        </section>
+        
+        <section class="links-section">
+            <h2>Links Adicionados</h2>
+            <ul id="links-list">
+                <li><a href="https://quizizz.com/" target="_blank">Quizizz</a></li>
+                <li><a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a></li>
+                <li><a href="https://inglesparana.com.br/" target="_blank">Inglês Paraná</a></li>
+                <li><a href="https://www.alura.com.br/" target="_blank">Alura</a></li>
+                <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                <li><a href="https://inglesparana.com.br/teens" target="_blank">Inglês Paraná Teens</a></li>
+                <li><a href="https://leiaparanaa.com.br/" target="_blank">Leia Paraná</a></li>
+            </ul>
+        </section>
+    </main>
+    
+    <script>
+        document.getElementById('study-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('site-name');
+            const urlInput = document.getElementById('site-url');
+            
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${urlInput.value}" target="_blank">${nameInput.value}</a>`;
+            document.getElementById('links-list').appendChild(li);
+            
+            nameInput.value = '';
+            urlInput.value = '';
+        });
+    </script>
+</body>
+</html>
